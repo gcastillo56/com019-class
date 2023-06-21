@@ -2,7 +2,9 @@
  *
  * This program will read the content of a file that holds
  * a shopping list and displays it to screen summarizing
- * repeated items into a single entry.
+ * repeated items into a single entry. In this case every
+ * entry will also hold a quantity that should be accumulated.
+ * The entry file is in csv format.
  *
  * @author: gcastill
  * August 2023
@@ -10,40 +12,44 @@
 
 #include <fstream>
 #include <iostream>
+#include <sstream>
 #include <string>
 using namespace std;
 
 int main()
 {
-    string myline;
+    string myline, item, qty;
     int count[4] = {0};
     ifstream myfile;
-    myfile.open("shopping_list.txt");
+    myfile.open("grades.csv");
 
     if (myfile.is_open())
     {
         while (!myfile.eof())
         {
-            myfile >> myline;
+            getline(myfile, myline);
             if (myline == "")
                 continue;
-            cout << myline << '\n';
-            if (myline == "eggs")
+            stringstream strstream(myline);
+            getline(strstream, item, ',');
+            getline(strstream, qty, ',');
+            cout << "i: " << item << "   q: " << qty << endl;
+            if (item == "eggs")
             {
-                count[0]++;
+                count[0] += stoi(qty);
             }
-            else if (myline == "ham")
+            else if (item == "ham")
             {
-                count[1]++;
+                count[1] += stoi(qty);
             }
-            else if (myline == "spam")
+            else if (item == "spam")
             {
-                count[2]++;
+                count[2] += stoi(qty);
             }
             else
             {
-                count[3]++;
-                cout << myline << " not in shopping items\n";
+                count[3] += stoi(qty);
+                cout << item << " not in shopping items\n";
             }
             myline = "";
         }

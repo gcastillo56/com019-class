@@ -1,0 +1,6 @@
+eggs, 4
+ham, 2
+eggs, 1
+spam, 3
+spam, 1
+eggs, 3

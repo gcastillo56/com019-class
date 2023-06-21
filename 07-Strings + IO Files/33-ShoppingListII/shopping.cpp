@@ -15,14 +15,6 @@
 #include <string>
 using namespace std;
 
-enum ShopItems
-{
-    EGGS,
-    HAM,
-    SPAM,
-    OTHERS
-};
-
 int main()
 {
     string myline, item, qty;
@@ -42,27 +34,27 @@ int main()
             cout << "i: " << item << "   q: " << qty << endl;
             if (item == "eggs")
             {
-                count[EGGS] += stoi(qty);
+                count[0] += stoi(qty);
             }
             else if (item == "ham")
             {
-                count[HAM] += stoi(qty);
+                count[1] += stoi(qty);
             }
             else if (item == "spam")
             {
-                count[SPAM] += stoi(qty);
+                count[2] += stoi(qty);
             }
             else
             {
-                count[OTHERS] += stoi(qty);
+                count[3] += stoi(qty);
                 cout << item << " not in shopping items\n";
             }
             myline = "";
         }
-        cout << "Eggs: " << count[EGGS] << endl
-             << "Ham: " << count[HAM] << endl
-             << "Spam: " << count[SPAM] << endl
-             << "Others: " << count[OTHERS] << endl;
+        cout << "Eggs: " << count[0] << endl
+             << "Ham: " << count[1] << endl
+             << "Spam: " << count[2] << endl
+             << "Others: " << count[3] << endl;
         myfile.close();
     }
     else

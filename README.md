@@ -36,3 +36,14 @@ This chapter deals with the multidimensionality of arrays.
 ## 7. Strings & IO Files
 
 This chapter deals with the special _string_ type and some of its functionality; how do we improve the output with proper handling of the display in console as well as input and output files.
+
+## Configuration to execute C/C++ in VS Code
+
+- Install a c/c++ compiler via mingw or others
+- Add MINGW_HOME to system and then to PATH
+- Terminal > Run build task - (Select g++ | Make sure it is the one under mingw folder)
+- A .exe file will appear in the folder
+- Run it from console as ./<file>.exe or just with the play button above the code.
+- To debug remember to place the breakpoints where you want to use them as such.
+
+More info [here](https://code.visualstudio.com/docs/languages/cpp)
